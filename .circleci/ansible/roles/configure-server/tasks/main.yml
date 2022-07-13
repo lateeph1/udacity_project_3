@@ -18,7 +18,7 @@
   become: yes
   apt:
     name: nodejs
-    version: "13.8.0"
+    state: latest
     update_cache: yes
 
 - name: "install dependencies."
