@@ -243,6 +243,9 @@ jobs:
           name: Run migrations
           command: |
             # Your code here
+            npm install -g npm@latest
+            npm cache clean --force
+            npm rm -rf node_modules && rm package-lock.json
             npm install
             npm run migrations > migrations_dump.txt
       - run:
@@ -254,9 +257,9 @@ jobs:
                 curl https://kvdb.io/8xwp7QoH7Erzy2AsUYU7Ha/migration_$\{CIRCLE_WORKFLOW_ID:0:7\}  -d '1'
             fi
       # Here's where you will add some code to rollback on failure
-      # - destroy-environment:
-      #     workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
-      #     event: on_fail
+      - destroy-environment:
+          workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
+          event: on_fail
 
 #   deploy-frontend:
 #     docker:
