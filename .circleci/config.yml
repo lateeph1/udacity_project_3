@@ -157,7 +157,6 @@ jobs:
       # Checkout code from git
       - checkout
       - run: yum -y install tar gzip
-      - aws-cli/setup
       - run:
           name: Ensure back-end infrastructure exists
           command: |
@@ -209,6 +208,9 @@ jobs:
       # attach workspace
       - attach_workspace:
           at: ~/
+
+      - aws-cli/setup
+
       - run:
           name: Install dependencies
           command: |
