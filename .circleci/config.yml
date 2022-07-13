@@ -107,7 +107,6 @@ jobs:
       - restore_cache:
           keys: [backend-build]
       # Your job code here
-      - aws-cli/setup
       - run:
           name: Back-end test
           command: |
@@ -158,6 +157,7 @@ jobs:
       # Checkout code from git
       - checkout
       - run: yum -y install tar gzip
+      - aws-cli/setup
       - run:
           name: Ensure back-end infrastructure exists
           command: |
