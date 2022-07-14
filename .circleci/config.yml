@@ -326,6 +326,12 @@ jobs:
             # your code here
             apk add tar gzip npm
 
+      - run:
+          name: Update ansible
+          command: |
+            # Your code here
+            apk add --update ansible
+
       - aws-cli/setup
 
       - run:
