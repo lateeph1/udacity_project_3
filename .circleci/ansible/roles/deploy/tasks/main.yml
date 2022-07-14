@@ -1,19 +1,4 @@
 ---
-- name: "update apt packages."
-  become: yes
-  apt:
-    update_cache: yes
-
-- name: "upgrade packages"
-  become: yes
-  apt:
-    upgrade: yes
-
-- name: remove dependencies that are no longer required
-  become: yes
-  apt:
-    autoremove: yes
-
 - name: Create directory
   file:
     path: ~/web
@@ -23,13 +8,6 @@
   ansible.builtin.unarchive:
     src: ~/project/artifact.tar.gz
     dest: ~/web
-
-- name: Install npm
-  become: yes
-  apt:
-    name: ["nodejs", "npm"]
-    state: latest
-    update_cache: yes
 
 - name: Executing node
   shell: |
