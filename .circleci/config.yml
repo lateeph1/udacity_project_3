@@ -272,7 +272,7 @@ jobs:
       - checkout
       - run:
           name: Install tar dependencies
-          command: yum install -y tar gzip
+          command: apk add tar gzip
 
       - node/install:
           install-yarn: true
