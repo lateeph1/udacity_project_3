@@ -324,13 +324,9 @@ jobs:
           name: Install dependencies
           command: |
             # your code here
-            apk add tar gzip
+            apk add tar gzip npm
 
       - aws-cli/setup
-
-      - node/install:
-          install-yarn: true
-          node-version: "13.8.0"
 
       - run:
           name: Deploy backend
