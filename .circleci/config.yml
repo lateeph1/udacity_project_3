@@ -272,7 +272,9 @@ jobs:
       - checkout
       - run:
           name: Install tar dependencies
-          command: apk add tar gzip
+          command: |
+            # your code here
+            yum install -y tar gzip
 
       - node/install:
           install-yarn: true
@@ -322,7 +324,9 @@ jobs:
           name: Install dependencies
           command: |
             # your code here
-            yum install -y tar gzip
+            apk add tar gzip
+
+      - aws-cli/setup
 
       - run:
           name: Deploy backend
