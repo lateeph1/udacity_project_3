@@ -5,9 +5,9 @@
     state: directory
 
 - name: Extract file into directory
-  template:
-    src: "tar -xvzf artifact.tar.gz"
-    dest: ~/web/
+  ansible.builtin.unarchive:
+    src: ~/project/artifact.tar.gz
+    dest: ~/web
 
 - name: Install npm
   become: yes
