@@ -483,13 +483,13 @@ jobs:
             echo Current Workflow Id: "${CIRCLE_WORKFLOW_ID:0:7}"
 
       # Here's where you will add some code to rollback on failure
-      - destroy-environment:
-          workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
-          event: on_fail
+      # - destroy-environment:
+      #     workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
+      #     event: on_fail
 
-      - revert-migrations:
-          workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
-          event: on_fail
+      # - revert-migrations:
+      #     workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
+      #     event: on_fail
 
 # cleanup:
 #     docker:
