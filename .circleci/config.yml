@@ -501,15 +501,12 @@ jobs:
       - checkout
 
       # Install dependencies
-      - run:
-          name: Install dependencies
-          command: |
-            # your code here
-            apk add tar gzip
+      - run: yum -y install tar gzip
 
       # attach workspace
       - attach_workspace:
           at: ~/
+
       - run:
           name: Get old stack workflow id
           command: |
